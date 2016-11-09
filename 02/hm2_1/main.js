@@ -34,5 +34,5 @@ var allNumbers = [1, 2, 4, 5, 6, 7, 8],
 console.log(isAllTrue(allNumbers, isNumber)); //вернет true
 console.log(isAllTrue(someNumbers, isNumber)); //вернет false
 console.log(isAllTrue(noNumbers, isNumber)); //вернет false
-console.log(isAllTrue([], isNumber)); //вернет false
+console.log(isAllTrue([], isNumber)); //Ошибка
 
