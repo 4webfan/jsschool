@@ -18,14 +18,15 @@ function filter( arr, callback ){
 
 		for( let i = 0; i < arr.length; i++ ){
 			if( callback( arr[i], i, arr) ){
-				rezArr.push( arr[i] );
+				rezArr[i] = arr[i];
 			}
 		}
 
 		return rezArr;
-	}else{
-		throw new Error( 'TypeError.. first argument is not Array =(' );
 	}
+
+	throw new Error( 'TypeError.. first argument is not Array =(' );
+	
 }
 
 function map( arr, callback ){
@@ -34,13 +35,14 @@ function map( arr, callback ){
 	if( Array.isArray( arr ) ){
 
 		for( let i = 0; i < arr.length; i++ ){
-			rezArr.push( callback( arr[i], i, arr) );
+			rezArr[i] =  callback( arr[i], i, arr);
 		}
 
 		return rezArr;
-	}else{
-		throw new Error( 'TypeError.. first argument is not Array =(' );
 	}
+	
+	throw new Error( 'TypeError.. first argument is not Array =(' );
+	
 }
 
 function reduce( arr, callback, initialValue){
@@ -66,17 +68,22 @@ function reduce( arr, callback, initialValue){
 
 		return previousValue;
 
-	}else{
-		throw new Error( 'TypeError.. first argument is not Array =(' );
 	}
+
+	throw new Error( 'TypeError.. first argument is not Array =(' );
+	
 }
 
 function slice( arr, start, end ){
 	if(Array.isArray( arr ) ){
 		let rezArr = [];
+		let count = 0;
 		// one arg
-		if( end === undefined){
+		if( end === undefined ){
 			end = arr.length;
+		}
+		if( start === undefined ){
+			start = 0;
 		}
 		if( start < 0 ){
 			start = arr.length + start;
@@ -89,14 +96,16 @@ function slice( arr, start, end ){
 		}
 
 		for( let i = start; i < end; i++ ){
-			rezArr.push( arr[i] );
+			rezArr[count] =  arr[i] ;
+			count++;
 		}
 
 		return rezArr;		
 
-	}else{
-		throw new Error( 'TypeError.. first argument is not Array =(' );
 	}
+		
+	throw new Error( 'TypeError.. first argument is not Array =(' );
+	
 }
 
 function splice( arr, index, quantity ){
@@ -110,41 +119,51 @@ function splice( arr, index, quantity ){
 
 		if( args.length > 3){
 			for( let i = 3; i < args.length; i++ ){
-				newValues.push( args[i] );
+				newValues[newValues.length] =  args[i];
 			}
+		
 		}
 
-		if( quantity == undefined ){
+		if( quantity === undefined ){
 			quantity = arr.length - index;
-		}else if( quantity < 0 || quantity == 0 && newValues.length == 0 ){
+		}else if( quantity < 0 || quantity == 0 && newValues.length == 0 || index === undefined ){
 			return [];
 		}
+
 
 		if( index < 0 ){
 			index = arr.length + index;
 		}
 
 		for( let i = 0; i < arr.length; i++ ){
-			if( i < index || i > index + quantity ){
-				rezArr.push(arr[i]);
+
+			if( i < index  ){
+				rezArr[rezArr.length] = arr[i];
 			}else{
 				// there is new value
 				if( newValues.length > 0 && pushedFlag ){
 					for( let j = 0; j < newValues.length; j++){
-						rezArr.push(newValues[j]);
+						rezArr[rezArr.length] = newValues[j];
 					}
 					
 					pushedFlag = false;
 				}
-				( quantity != 0 ) ? redicedArr.push(arr[i]) : rezArr.push(arr[i]);
+
+				if( i < index + quantity ){ 
+					redicedArr[redicedArr.length] = arr[i];
+				}else {
+				 	rezArr[rezArr.length] = arr[i];
+				}
+
 			}
+
 		}
 
 
 		// modify array 
 		arr.length = 0;
 		for( let i = 0; i < rezArr.length; i++){
-			arr.push( rezArr[i] );
+			arr[i] = rezArr[i];
 		}
 
 		return redicedArr;		
@@ -156,12 +175,12 @@ function splice( arr, index, quantity ){
 
 // -------------------- call example -----------------
 
-//------------ filter
+//------------ forEach
 let array = [1, 2, 3, 4, 5, 6];
 let str = '1,2,3,4,5';
 forEach( array, item => console.log(item) );
 
-//------------ forEach
+//------------ filter
 let greaterThan4 = filter([], item => item > 4);
 console.log( greaterThan4 );
 
@@ -187,7 +206,14 @@ console.log( slice(arr,-2,-3) ); //возвращает []
 
 //------------ splice
 
-var fruits = ["апельсины", "яблоки", "груши","виноград"],
- deleted = splice(fruits,2, 0, "киви", "дыня");
-console.log(deleted); //выведет []
-console.log(fruits); //выведет ["апельсины", "яблоки","киви", "дыня", "груши", "виноград"]
+var myFish = ['ангел', 'клоун', 'мандарин', 'хирург'];
+
+var removed = splice(myFish, 2, 0, 'барабанщик');
+console.log( myFish );
+removed = splice(myFish, 3, 1);
+console.log( myFish );
+removed = splice(myFish, 2, 1, 'телескоп');
+console.log( myFish );
+removed = splice(myFish, 0, 2, 'попугай', 'анемон', 'голубая');
+console.log( myFish );
+removed = splice(myFish, 3, Number.MAX_VALUE);
