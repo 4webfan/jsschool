@@ -5,9 +5,10 @@ function forEach( arr, callback ){
 		for( let i = 0; i < arr.length; i++ ){
 			callback( arr[i], i, arr);
 		}
-	}else{
-		throw new Error( 'TypeError.. first argument is not Array =(' );
+		return;
 	}
+	throw new Error( 'TypeError.. first argument is not Array =(' );
+	
 }
 
 function filter( arr, callback ){
