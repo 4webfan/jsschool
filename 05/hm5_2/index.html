@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    	html{
+    		margin: 0;
+	    	padding: 0;
+    	}
+	    body{
+	    	position: relative;
+	    	height: 100vh;
+	    	margin: 0;
+	    	padding: 0;
+	    }
+	    #button{
+	    	width: 100px;
+	    	height: 50px;
+	    	cursor: pointer;
+	    	position: absolute;
+	    	z-index: 2;
+	    	left: 0; right: 0; top: 0; bottom: 0;
+	    	margin: auto;
+	    	display: block;
+	    }
+
+    	.main{
+    		display: block;
+    		height: 0;
+    	}
+    	div{
+    		z-index: 1;
+    		cursor: move;
+    	}
+    </style>
+</head>
+<body>
+
+<main class="main" id="main">
+
+</main>
+<input type="button" id="button" value="create div"/>
+
+<script src="main.js"></script>
+</body>
+</html>
