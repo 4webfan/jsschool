@@ -1,7 +1,7 @@
 
 function divCreator(){
 
-    this.width = Math.floor(Math.random() * (document.documentElement.clientWidth/2 - 1)) + 1;;
+    this.width = Math.floor(Math.random() * (document.documentElement.clientWidth/2 - 1)) + 1;
     this.height = Math.floor(Math.random() * (document.documentElement.clientHeight/2 - 1)) + 1;
     this.top = 0;
     this.left = 0;
@@ -16,7 +16,6 @@ function divCreator(){
         this.div = document.createElement('div');
         var main = document.getElementById('main');
         var body = document.getElementsByTagName('body');
-        var style = '';
          
         // position generate
         this.positionGen();
