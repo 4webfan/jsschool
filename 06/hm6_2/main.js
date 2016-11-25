@@ -1,14 +1,3 @@
-function getCitiesList(){
-    var xhr = new XMLHttpRequest();
-    var resp, citiesArr;
-    xhr.open( 'GET', 'https://raw.githubusercontent.com/smelukov/citiesTest/master/cities.json', true );
-    xhr.addEventListener( 'load', function(){
-        resp = xhr.response;
-        citiesArr = parseData( resp );
-        buildList( citiesArr );
-    });
-    xhr.send();
-}
 
 function parseData( data ){
     var arrObj = JSON.parse( data );
@@ -32,5 +21,35 @@ function buildList( arr ){
     return
 }
 
+var xhrPromise = function( resolve, reject ){
 
-window.addEventListener( 'load', getCitiesList );
+    return new Promise(function( resolve, reject ){
+        var xhr = new XMLHttpRequest();
+        var resp, citiesArr;
+        xhr.open( 'GET', 'https://raw.githubusercontent.com/smelukov/citiesTest/master/cities.json', true );
+
+        xhr.addEventListener( 'load', function(){
+            
+            if( xhr.status == 200 ){
+                resp = xhr.response;
+                resolve( resp );
+            }else{
+               reject(); 
+            }
+            
+        });
+        xhr.addEventListener('error', function(){
+            reject();
+        });
+        xhr.send();
+    });
+}
+
+xhrPromise().then(function( resp ){
+
+    buildList( parseData( resp ) );
+
+}, function(){
+    console.log('Error');
+});
+
