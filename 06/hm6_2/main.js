@@ -20,9 +20,7 @@ function buildList( arr ){
 
     return
 }
-
-var xhrPromise = function( resolve, reject ){
-
+function  xhrPromise(){
     return new Promise(function( resolve, reject ){
         var xhr = new XMLHttpRequest();
         var resp, citiesArr;
@@ -44,6 +42,7 @@ var xhrPromise = function( resolve, reject ){
         xhr.send();
     });
 }
+
 
 xhrPromise().then(function( resp ){
 
