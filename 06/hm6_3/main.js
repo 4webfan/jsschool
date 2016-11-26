@@ -35,10 +35,7 @@ function inputHandler( event ){
     buildList( newArr );
 
 }
-
-var cities = [];
-var xhrPromise = function( resolve, reject ){
-
+function xhrPromise(){
     return new Promise(function( resolve, reject ){
         var xhr = new XMLHttpRequest();
         var resp, citiesArr;
@@ -60,6 +57,8 @@ var xhrPromise = function( resolve, reject ){
         xhr.send();
     });
 }
+
+var cities = [];
 
 xhrPromise().then(function( resp ){
     cities = parseData( resp );
