@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <style>
+		body{
+			font-family: Arial, sans-serif;
+		}
+		#cookieTable{
+			border-collapse: collapse;
+			width: 800px;
+			border: 1px solid rgba(0,0,0,0.2);
+		}
+		#cookieTable td{
+			border: 1px solid rgba(0,0,0,0.2);
+			padding: 5px;
+		}
+		#cookieTable button{
+			cursor: pointer;
+		}
+		.cookie-add{
+			border-collapse: collapse;
+			width: 800px;
+			border: none;
+
+		}
+		.cookie-add td{
+			text-align: center;
+		}
+		.cookie-add th{
+			border: none;
+		}
+		#cookie_add-button{
+			height: 40px;
+			cursor: pointer;
+		}
+		h1{
+			font-family: Arial, sans-serif;
+			font-size: 22px;
+			color: #565656;
+			margin-top: 30px;
+		}
+		.wrapper{
+			max-width: 800px;
+			margin: 0 auto;
+			padding-top: 100px;
+		}
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<div class="wrapper">
+	<h1>Добавить cookie</h1>
+
+	<div class="cookie-add">
+
+		<form action="test.php" id="cookie-added-form">
+			<table class="cookie-add">
+				<thead>
+				<tr>
+					<th>Имя</th>
+					<th>Значение</th>
+					<th>Срок годности (дней)</th>
+					<th></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td><input type="text" id="cookie_name"/></td>
+					<td><input type="text" id="cookie_value"/></td>
+					<td><input type="text" id="cookie_exp"/></td>
+					<td><input type="button" value = "Добавить cookie" id="cookie_add-button"/></td>
+				</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+
+
+
+	<h1>Установленные cookie</h1>
+	<table id="cookieTable"></table>
+
+
+</div>
+<script src="main.js"></script>
+</body>
+</html>
