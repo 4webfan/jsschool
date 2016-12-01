@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<style>
+		body{
+			overflow: scroll;
+		}
+		ul{
+			list-style: none;
+			padding: 0;
+			width: 500px;
+			margin: 0 auto 50px;
+		}
+		li{
+			border: 1px solid #eee;
+			border-top: none;
+			padding: 5px;
+			font-family: arial, sans-serif;
+			font-size: 17px;
+			color: #3c3c3c;
+		}
+		li:nth-child(1){
+			border-top: 1px solid #eee;
+		}
+		input[type="text"]{
+			box-sizing: border-box;
+			width: 500px;
+			display: block;
+			margin: 50px auto;
+			height: 40px;
+			border-radius: 5px;
+			padding: 0 15px;
+			border: 1px solid rgba(0,0,0,0.2);
+			outline: none;
+		}
+
+	</style>
+	<title>Document</title>
+</head>
+<body>
+<div>
+	<input type="text" id="input"/>
+	<div id="result">
+
+	</div>
+</div>
+
+<script src="main.js"></script>
+<script type="text/x-handlebars-template" id="listItemTemplate">
+	<ul>
+		{{#each list}}
+		<li>{{city}}</li>
+		{{/each}}
+	</ul>
+</script>
+</body>
+</html>
