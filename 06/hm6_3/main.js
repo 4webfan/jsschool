@@ -6,18 +6,19 @@ function parseData( data ){
 
 function buildList( arr ){
 
-    var ul = document.createElement('ul');
-    document.documentElement.append(ul);
+    var fragment = document.createDocumentFragment();
+    var ul = fragment.appendChild(document.createElement('ul'));
 
     arr.forEach(function(item){
         if( item ){
-            var li = document.createElement('li');
-            var text = document.createTextNode( item );
 
-            li.appendChild(text);
+            var li = ul.appendChild(document.createElement('li'));
+            li.appendChild(document.createTextNode(item));
             ul.appendChild(li);
         }
     });
+
+    document.documentElement.append(ul);
 
     return
 }
