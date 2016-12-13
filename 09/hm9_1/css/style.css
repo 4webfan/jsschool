@@ -1,0 +1,270 @@
+/* font-family: "FiraSansRegular"; */
+@font-face {
+    font-family: "FiraSansRegular";
+    src: url("../fonts/FiraSansRegular/FiraSansRegular.eot");
+    src: url("../fonts/FiraSansRegular/FiraSansRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/FiraSansRegular/FiraSansRegular.woff") format("woff"),
+    url("../fonts/FiraSansRegular/FiraSansRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "FiraSansBold"; */
+@font-face {
+    font-family: "FiraSansBold";
+    src: url("../fonts/FiraSansBold/FiraSansBold.eot");
+    src: url("../fonts/FiraSansBold/FiraSansBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/FiraSansBold/FiraSansBold.woff") format("woff"),
+    url("../fonts/FiraSansBold/FiraSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "FiraSansLight";
+    src: url("../fonts/FiraSansLight/FiraSansLight.eot");
+    src: url("../fonts/FiraSansLight/FiraSansLight.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/FiraSansLight/FiraSansLight.woff") format("woff"),
+    url("../fonts/FiraSansLight/FiraSansLight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "FiraSansBold"; */
+@font-face {
+    font-family: "FiraSansMedium";
+    src: url("../fonts/FiraSansMedium/FiraSansMedium.eot");
+    src: url("../fonts/FiraSansMedium/FiraSansMedium.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/FiraSansMedium/FiraSansMedium.woff") format("woff"),
+    url("../fonts/FiraSansMedium/FiraSansMedium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.filter-start__wrapper{
+    margin-top: 100px;
+    text-align: center;
+}
+.filter-start{
+    display: inline-block;
+}
+
+.friends-filter-box{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+
+}
+
+.friends-filter{
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    margin: auto;
+    width: 620px;
+    height: 490px;
+
+}
+
+.friends-filter__wrapper{
+    background: white;
+    width: 620px;
+    height: 490px;
+    padding: 45px 0px 90px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.friends-filter__head{
+    height: 45px;
+    width: 100%;
+    background: #ff8663;
+    border-radius: 6px 6px 0 0;
+    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.friends-filter__footer{
+    height: 45px;
+    width: 100%;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    background: #f0f0f0;
+    border-radius: 0 0 6px 6px;
+    text-align: right;
+    padding: 8px 15px;
+
+}
+.friends-filter__save{
+    display: inline-block;
+    text-align: center;
+    padding: 0 15px;
+    height: 30px;
+    font: 400 12px/30px 'FiraSansLight', 'sans-serif';
+    color: white;
+    text-decoration: none;
+    background: #ff8663;
+    border-radius: 5px;
+}
+.friends-filter__main-title{
+    font: 400 16px/1 'FiraSansRegular', 'sans-serif';
+    color: white;
+    margin: 16px 0 0;
+    letter-spacing: -0.8px;
+    padding: 0 15px;
+}
+
+.friends-filter__search-row{
+    font-size: 0;
+    background: #f0f0f0;
+}
+.friends-filter__search-col{
+    padding: 11px 15px;
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+}
+.friends-filter__search-col_with-zoom{
+    position: relative;
+}
+.friends-filter__search-col_with-zoom::after{
+    position: relative;
+    content: "";
+    width: 13px;
+    height: 15px;
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    background: url(../img/zoom.png) no-repeat center;
+
+}
+.friends-filter__search-area{
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 15px;
+    font-size: 12px;
+}
+.friends-filter__search-area_name{
+    padding-left: 28px;
+    position: relative;
+
+}
+.friends-filter__close{
+    width: 14px;
+    height: 14px;
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 0; bottom: 0;
+    margin: auto 0;
+    transition: 0.25s ease;
+}
+.friends-filter__close:hover{
+    opacity: 0.7;
+}
+
+
+.friends-filter__list-box{
+    height: 100%;
+    font-size: 0;
+}
+.friends-filter__list-col{
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    /*padding: 10px 15px;*/
+}
+.friends-filter__list-col:nth-child(1){
+    margin-left: 1px;
+}
+.friends-filter__list-col:nth-child(2){
+    border-left: 1px solid #f0f0f0;
+    margin-left: -1px;
+}
+.friends-filter__title{
+    color: #4f4f4f;
+    font: 400 12px/1.5 'FiraSansBold', 'sans-serif';
+    margin-bottom: 2px;
+    padding: 10px 15px;
+}
+
+.friends-list{
+    padding: 0;
+    list-style: none;
+    height: 100%;
+    overflow: auto;
+}
+.friends-list__item{
+    /*height: 58px;*/
+    border-top: 1px solid #f0f0f0;
+    padding: 6px 25px 6px 6px;
+    transition: 0.2s ease;
+    white-space: nowrap;
+    position: relative;
+}
+
+.friends-list__item:nth-last-child(1){
+    border-bottom: 1px solid #f0f0f0;
+}
+.friends-list__item:hover{
+    background: #f0f0f0;
+}
+
+.friends-list__avatar{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: top;
+}
+.friends-list__name{
+    display: inline-block;
+    vertical-align: top;
+    font: 400 12px/45px 'FiraSansMedium', 'sans-serif';
+    color: #4f4f4f;
+    padding: 0 7px;
+    max-width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.friends-list__add{
+    position: absolute;
+    right: 7px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    width: 16px;
+    height: 16px;
+    background: url(../img/plus.png) no-repeat center;
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+.friends-list__add:hover{
+    opacity: 0.7;
+}
+.friends-filter__result-box{
+    height: 100%;
+    padding-bottom: 40px;
+}
+
+.over {
+  border: 2px dashed #000;
+}
+
+#result2 .friends-list__add{
+    transform: rotate(45deg);
+}
